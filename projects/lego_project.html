@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LEGO-prosjekt – IDATT1003/1001</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+/* === GLOBAL STIL – Samme som tidligere === */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1e1e2f, #2a2a3f, #23233a);
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+nav {
+  width: 100%;
+  background-color: rgba(44,44,69,0.95);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(2px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0.5rem 0;
+  flex-wrap: wrap;
+}
+nav ul li { position: relative; margin: 0 1rem; }
+nav a {
+  color: #f0f0f0;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  display: block;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: background 0.1s ease, transform 0.05s ease;
+}
+nav li:hover > a { background-color: #3a3a5c; }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* HEADER */
+header.intro-header {
+  text-align: center;
+  background: linear-gradient(135deg, #1e1e2f, #2c2c45);
+  color: #89b4ff;
+  padding: 2rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+/* === CARDS / SECTIONS === */
+.exercise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.exercise-card,
+section.reflection-card,
+section {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(2px);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  margin-bottom: 1.5rem;
+  color: #e0e0e0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.exercise-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+/* KORT OG SEKSJONER */
+section {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(2px);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  margin-bottom: 1.5rem;
+  color: #e0e0e0;
+}
+
+h2 { color: #89b4ff; margin-bottom: 1rem; }
+h3 { color: #a8c5ff; margin-top: 1rem; }
+
+ul li { margin-bottom: 0.5rem; }
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #1e1e2f, #2c2c45);
+  color: #fff;
+  margin-top: 3rem;
+  border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+  nav ul { flex-direction: column; gap: 0.5rem; }
+  header.intro-header h1 { font-size: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGASJON -->
+<nav>
+  <ul>
+    <li><a href="../index.html">Hjem</a></li>
+    <li><a href="../about.html">Om meg</a></li>
+    <li><a href="../projects.html">Prosjekter</a></li>
+    <li><a href="../index.html#kontakt">Kontakt</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+
+<header class="intro-header">
+  <h1>🧱 LEGO-prosjekt – IDATT1004</h1>
+  <p>Programkode, prosessdokumentasjon og refleksjon</p>
+</header>
+
+<section>
+  <h2>🎯 Oppgavebeskrivelse</h2>
+  <p>
+    I dette prosjektet fikk vårt Team (Team 20) i oppgave å utvikle et program som styrte en LEGO EV3-robot 
+    til å utføre en spesifikk oppgave. Prosjektet var delt opp i 4 ulike øvinger hvor hver av øvingene bygget på hverandre. 
+    Den siste øvingen, øving 4, var et IDI-rally hvor alle de andre teamene skulle konkurrere mot hverandre for å se hvem som hadde programmert den beste roboten som kunne følge en gitt bane.
+    Prosjektet kombinerte både programmering, samarbeid, testing og dokumentasjon. Målet var å anvende teori fra Teambasert Samhandling 
+    i en praktisk kontekst der vi måtte samarbeide om planlegging, loggføring og progresjon.
+  </p>
+</section>
+
+<section>
+  <h2>💻 Programkode og Teknologi</h2>
+  <p>
+    Vi brukte <b>Python</b> i EV3-miljøet for å programmere roboten. 
+    Prosjektet inkluderte logikk for bevegelse, sensorstyring, og betingelser basert på lys.
+  </p>
+  <ul>
+    <li><b>Språk:</b> Python (EV3 MicroPython)</li>
+    <li><b>Verktøy:</b> VS Code, GitHub</li>
+    <li><b>Versjonskontroll:</b> Git / GitHub for samarbeid og endringshistorikk</li>
+  </ul>
+
+  <p><b>Et utdrag fra hovedprogrammet:</b></p>
+  <pre><code>
+if running:
+  reflection['left'] = settings['alpha'] * sensors['color.left'].reflection() + (1 - settings['alpha']) * reflection['left']
+  reflection['right'] = settings['alpha'] * sensors['color.right'].reflection() + (1 - settings['alpha']) * reflection['right']
+  
+  error = -sensors['color.right'].reflection() + sensors['color.left'].reflection()
+
+
+  dt = stopwatch.time() / 1000
+  stopwatch.reset()
+
+  derivative = (error - prev_error) / dt if dt > 0 else 0
+  derivative = clamp(derivative, -100, 100)
+
+  integral += error * dt
+  integral = clamp(integral, -500, 500)
+
+  correction = 0
+  correction += settings['controller']['p'] * error
+  correction += settings['controller']['i'] * integral
+  correction += settings['controller']['d'] * derivative
+
+  driver.drive(settings['speed'], correction)
+  log.write(f"{sensors['color.left'].reflection()} {sensors['color.right']}' : {error} : {derivative}")
+
+
+  </code></pre>
+  <p>Kodeutsnittet viser hvordan roboten ved bruk av PID-control algoritmen følger en svart linje på en lys overflate ved hjelp av to fargesensorer på hver sin side av linjen.</p>
+</section>
+
+<section>
+  <h2>🧩 Prosessen og dokumentasjon</h2>
+  <p>
+    Gruppen fulgte en iterativ prosess inspirert av <b>smidig utvikling</b>. 
+    Vi startet med idéutforming og prototypeplanlegging, før vi implementerte, testet og 
+    forbedret løsningen i flere sprint-lignende iterasjoner og for hver gang vi fikk bestått en øving.
+  </p>
+  <h3>Øvingene i Legoprosjektet</h3>
+  <div class="exercise-grid">
+    <div class="exercise-card"><h4>🐍 Øving 1</h4>
+      <p>Start opp EV3-en og installer utviklingsmiljøet. 
+         Bygg en enkel Lego-bil som kan kjøre, svinge og stoppe i et gitt rektangulært mønster. 
+         Skriv ut tekst på robotens LCD-skjerm</p></div>
+    <div class="exercise-card"><h4>🔁 Øving 2</h4>
+      <p>Instalasjon av trykksensor og ultrasonisk sensor på robot.
+        Gjør roboten i stand til å slås av og på.
+        Programmer roboten til å unngå hindringer mens den kjører.
+        Bruk høyttalerne på EV3-en til å få roboten til å si ulike ting.</p></div>
+    <div class="exercise-card"><h4>⚙️ Øving 3</h4>
+      <p>Installasjon av fargesensorer på robot.
+         Bruk robotens fargesensorer til å følge en svart linje på banen.
+         Få roboten til å stoppe hvert 10. sekund for å utføre underholdende bevegelser.
+         Få roboten til å spille av lyder.</p></div>
+    <div class="exercise-card"><h4>📂 Øving 4</h4>
+      <p>Forbedre og klargjør roboten for et rally.
+         Delta i rallyet og konkurrer mot andre robotbiler.</p></div>
+  </div>
+
+  <style>
+/* CPU/GPU-optimalisert styling */
+.exercise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.exercise-card {
+  background-color: rgba(50,55,85,0.9); /* flat, uten gradient for mindre GPU load */
+  border-left: 4px solid #89b4ff;
+  padding: 1.8rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3); /* enklere skygge */
+  color: #e0e0e0;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  will-change: transform; /* hjelper GPU-optimalisering */
+}
+
+.exercise-card h4 {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+  color: #89b4ff;
+}
+
+.exercise-card p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #d0d0f0;
+}
+
+.exercise-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.35); /* mindre intensiv */
+}
+</style>
+  <h3>Faser:</h3>
+  <ul>
+    <li>Opprettelse av Team GitHub, GitHub wiki og Arbeidskontrakt</li>
+    <li>Planlegging og rollefordeling</li>
+    <li>Utvikling av grunnleggende kjørelogikk (Fullføre øvingene 1 og 2)</li>
+    <li>Testing og feilretting i simulerte miljøer (Fullføre øving 3)</li>
+    <li>Integrasjon av sensorer og finjustering (Implementere PID-control, forberedelser til IDI-rally)</li>
+    <li>Presentasjon og refleksjon (Selve IDI rallyet)</li>
+  </ul>
+  <p>
+    Underveis brukte vi Git for versjonskontroll og issues for oppgavesporing. 
+    Dette gjorde det lettere å koordinere innsats og dokumentere endringer.
+  </p>
+</section>
+
+<section>
+  <h2>🪞 Refleksjon</h2>
+  <p>
+    Prosjektet ga meg verdifull erfaring med samarbeid i et teknisk prosjekt. 
+    Jeg lærte viktigheten av tydelig kommunikasjon, testbasert utvikling og strukturert bruk av Git.
+  </p>
+  <br>
+  <p><b>Mitt bidrag:</b> Jeg hadde hovedansvaret for mye av papirarbeidet, blant annet 
+    opprettelsen av hele NTNU github repositorien, 
+    sette opp hele arbeidskontrakten for Teamet og GitHub wiki-en. 
+    </p>
+    <p>En ting å legge merke til er at jeg begynte med 0 erfaring i GitHub og git versjonskontroll.
+    Jeg fikk masse hjelp fra mine teammedlemmer å forstå GitHub og de lot meg kode på en Learning branch slik at jeg i senere tid kunne hjelpe litt mer.
+    </p>
+    <p>Dette har hatt stor innvirkning ikke bare gjennom prosjektet men også hele studiet så langt. 
+    Så selv om jeg nødvendigvis ikke kodet så mye så hadde jeg kontribuert nesten like mye som de andre.
+    </p>
+  </p>
+</section>
+
+<section>
+  <h2>💡 Læringsutbytte</h2>
+  <ul>
+    <li>Forståelse for samspillet mellom programvare og maskinvare</li>
+    <li>Trening i praktisk problemløsning og feilsøking</li>
+    <li>Erfaring med teambasert samhandling og kommunikasjon i team</li>
+    <li>Forståelse for smidig arbeidsmetodikk og versjonskontroll</li>
+    <li>Evne til å dokumentere og reflektere over egen læringsprosess</li>
+  </ul>
+</section>
+
+<section>
+  <h2>🚀 Relevans i jobbsammenheng</h2>
+  <p>
+    Erfaringen fra prosjektet er direkte overførbar til arbeidslivet, 
+    særlig i tverrfaglige miljøer hvor utvikling og testing går hånd i hånd. 
+    Å forstå iterativ utvikling, feilhåndtering og samarbeid i team 
+    er sentralt for å lykkes i teknologiprosjekter.
+  </p>
+</section>
+
+<section>
+  <h2>🔗 Ressurser og Dokumentasjon</h2>
+  <ul>
+    <li><a href="https://git.ntnu.no/IDATT1004-Team20-H2025/Innledende-lego-oppgaver-Team20/wiki" target="_blank">GitHub – LEGO-prosjekt repository wiki</a></li>
+  </ul>
+</section>
+
+</div>
+
+<footer>
+  <sub>© 2025 Fredrik Jonathan Marjoni – LEGO-prosjekt E-portefølje</sub>
+</footer>
+
+</body>
+</html>

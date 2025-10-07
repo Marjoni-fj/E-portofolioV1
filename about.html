@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Om meg – Fredrik Jonathan Marjoni</title>
+<link rel="stylesheet" href="assets/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  /* === GLOBAL RESET === */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #2a2a3f, #23233a);
+    color: #f0f0f0;
+    line-height: 1.6;
+  }
+
+  /* === NAVIGASJON === */
+  .main-nav {
+    background-color: rgba(44, 44, 69, 0.95);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .main-nav ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0.75rem 1rem;
+    margin: 0;
+    gap: 0.5rem;
+  }
+
+  .main-nav li {
+    position: relative;
+  }
+
+  .main-nav a {
+    color: #f0f0f0;
+    text-decoration: none;
+    padding: 0.6rem 1.1rem;
+    font-weight: 500;
+    border-radius: 6px;
+    display: inline-block;
+    transition: background-color 0.25s ease, transform 0.25s ease;
+  }
+
+  .main-nav li:hover > a,
+  .main-nav li:focus-within > a {
+    background-color: #3a3a5c;
+  }
+
+  /* Dropdown meny */
+  .main-nav ul li ul {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    left: 0;
+    background-color: rgba(44,44,69,0.98);
+    border-radius: 8px;
+    min-width: 200px;
+    padding: 0.5rem 0;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(5px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .main-nav li:hover > ul,
+  .main-nav li:focus-within > ul {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .main-nav ul li ul li a {
+    padding: 0.6rem 1rem;
+    font-weight: 400;
+  }
+
+  .main-nav ul li ul li a:hover,
+  .main-nav ul li ul li a:focus {
+    background-color: #444466;
+  }
+
+  @media (max-width: 768px) {
+    .main-nav ul {
+      flex-direction: column;
+      align-items: center;
+    }
+    .main-nav li {
+      width: 100%;
+      text-align: center;
+    }
+    .main-nav ul li ul {
+      position: static;
+      transform: none;
+      opacity: 1;
+      pointer-events: auto;
+      box-shadow: none;
+    }
+  }
+
+  /* === CONTAINER === */
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 3rem 1rem;
+  }
+
+  /* === HEADER === */
+  .about-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlide 0.8s forwards;
+  }
+
+  .about-header img {
+    width: 200px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    transition: transform 0.3s;
+  }
+  .about-header img:hover { transform: scale(1.05); }
+
+  .about-text {
+    flex: 1;
+  }
+
+  .about-text h1 {
+    color: #89b4ff;
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .about-text p {
+    color: #e0e0e0;
+    margin-bottom: 0.8rem;
+    line-height: 1.5;
+  }
+
+  /* === SEKSJONER === */
+  .section {
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    background-color: rgba(255,255,255,0.08);
+    color: #f5f5f5;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlide 0.8s forwards;
+  }
+
+  h1, h2 {
+    color: #89b4ff;
+  }
+
+  h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  section a {
+    color: #9ecbff;
+    text-decoration: none;
+  }
+  section a:hover { text-decoration: underline; }
+
+  /* === INTEREST SCROLL === */
+  .interest-scroll {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 2rem;
+    padding: 2rem 0;
+  }
+
+  .interest-scroll::-webkit-scrollbar {
+    height: 8px;
+  }
+
+  .interest-scroll::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+
+  .interest-scroll::-webkit-scrollbar-track {
+    background: #1e1e2f;
+  }
+
+  .interest-section {
+    scroll-snap-align: start;
+    flex: 0 0 90%;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(8px);
+    color: #f5f5f5;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+    padding: 1.5rem;
+    display: flex;
+    gap: 2rem;
+    transition: transform 0.3s;
+  }
+
+  .interest-section:hover { transform: scale(1.02); }
+
+  .interest-section.reverse { flex-direction: row-reverse; }
+
+  .interest-image img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  }
+
+  .interest-text h2 { color: #89b4ff; }
+  .interest-text p { color: #f0f0f0; }
+
+  /* === SOSIALE IKONER === */
+  .social-icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.7rem;
+    margin-top: 1rem;
+  }
+
+  .social-icons img {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s;
+  }
+
+  .social-icons img:hover { transform: scale(1.05); }
+
+  /* === FOOTER === */
+  footer {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    background: linear-gradient(135deg, #1e1e2f, #2c2c45);
+    color: #fff;
+    margin-top: 3rem;
+  }
+
+  /* === ANIMASJONER === */
+  @keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .small-image {
+  width: 70%;
+  max-width: 400px;
+  margin: 0 auto;
+  display: block;
+}
+
+
+</style>
+
+</head>
+<body>
+
+<!-- NAVIGASJON -->
+<nav class="main-nav">
+  <ul>
+    <li><a href="index.html">Hjem</a></li>
+    <li><a href="about.html">Om meg</a></li>
+    <li><a href="projects.html">Prosjekter</a></li>
+    <li><a href="#kontakt">Kontakt</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+
+<header class="about-header">
+  <img src="assets/ProfileV2.jpg" alt="Profilbilde">
+  <div class="about-text">
+    <h1>Hei! Jeg er Fredrik Jonathan Marjoni</h1>
+    <p>🎓 (BIDATA) student @ NTNU</p>
+    <p>💡 Interesser: Teknologi, Kampsport, Reise</p>
+    <p>🚀 Målet mitt: Å jobbe innen Teknologi og virksomhet</p>
+  </div>
+</header>
+
+<section class="section">
+  <h2>Hvem er jeg?</h2>
+  <p style="margin-bottom: 1.5em;">Jeg er en 19 år gammel student som tar en Bachelor i Ingeniørfag, data (også kjent som dataingeniør) ved NTNU i Trondheim. 
+    Født og oppvokst i Norge med indonesisk bakgrunn, behersker jeg fire språk flytende: norsk, engelsk, indonesisk og tysk (i noen grad).</p>
+  <p style="margin-bottom: 1.5em;">Fra tidlig alder har jeg vært fascinert av vitenskap - først og fremst naturfag som kjemi og fysikk - 
+    men over tid har interessene mine utviklet seg til å omfatte matematikk, teknologi, informatikk, økonomi og nettverkskommunikasjon. 
+    Denne tverrfaglige nysgjerrigheten gjenspeiler min lidenskap for å forstå hvordan komplekse systemer fungerer, samt for å utforske innovative løsninger.</p>
+  <p>Utover akademiske interesser drives jeg av et kontinuerlig ønske om å lære og utvide mine ferdigheter. 
+    En av mine langvarige lidenskaper er kampsport, spesielt ITF Taekwon-do, som jeg har drevet med både for den fysiske og mentale disiplinen det gir, men også på et profesjonelt nivå. 
+    Jeg har konkurrert nasjonalt flere ganger og fungert som hovedinstruktør i flere år. 
+    Å lede klasser i ung alder har gitt meg uvurderlige erfaringer innen kommunikasjon, lederskap, organisering og etikette – ferdigheter som fortsatt preger både mitt personlige og profesjonelle liv.</p>
+</section>
+
+<!-- INTERESSE-SEKSJONER -->
+<section class="section">
+  <h2>Mine interesser</h2>
+</section>
+<div class="interest-scroll">
+  <section class="interest-section">
+    <div class="interest-text">
+      <h2>ITF Taekwon-do</h2>
+      <p>Jeg har trent ITF Taekwon-do i mange år, og kampkunsten har vært mer enn bare teknikker og konkurranser – det har vært en reise i selvdisiplin og samhandling.</p>
+      <p>Som barneinstruktør lærte jeg å lede, motivere og tilpasse meg ulike personligheter, mens nasjonale konkurranser har utfordret meg til å yte mitt beste under press.</p>
+      <br>
+      <p>Disse erfaringene har formet både min karakter og min evne til å jobbe målrettet med andre.</p>
+    </div>
+    <div class="interest-image">
+      <img src="assets/Taekwondo.jpeg" alt="ITF Taekwon-do">
+    </div>
+  </section>
+
+  <section class="interest-section reverse">
+    <div class="interest-text">
+      <h2>Reise</h2>
+      <p>For å si det sånn - Verden er så stor!</p>
+      <p>Jeg elsker å reise og utforske nye kulturer og steder (selvfølgelig når jeg har tid til det).</p>
+      <p>Reiser gir inspirasjon og perspektiv på både liv og teknologi.</p>
+      <p>De beste gangene har definitivt vært reisene til de asiatiske landene.</p>
+    </div>
+    <div class="interest-image">
+      <img src="assets/Traveling.jpg" alt="Traveling">
+    </div>
+  </section>
+
+  <section class="interest-section">
+    <div class="interest-text">
+      <h2>Living in the moment – fotografering og opplevelser</h2>
+      <p>Det er noe med verden rundt meg som fasciner meg.</p>
+      <br>
+      <p>Jeg setter pris på å leve i øyeblikket og fange det gjennom fotografering.</p> 
+      <p>Å dokumentere slike opplevelser gir meg muligheten til å reflektere, lære og samle verdifull livserfaring, samtidig som jeg nyter tiden sammen med andre.</p>
+      <p>Bildet viser meg og noen kompiser under en marsj/maraton - et lite, men minnerikt øyeblikk.</p>
+    </div>
+    <div class="interest-image">
+      <img src="assets/LivingTheMoment.jpg" alt="''Living in the moment''">
+    </div>
+  </section>
+
+  <section class="interest-section reverse">
+    <div class="interest-text">
+      <h2>Sosialisering</h2>
+      <p>Jeg liker å møte nye mennesker og bygge relasjoner og nettverk, både personlig og profesjonelt. Sosialisering gir perspektiver og samarbeidserfaring.</p>
+      <p>Samtidig - Sosialisering sies å være et menneskelig behov, så hvorfor ikke?</p>
+    </div>
+    <div class="interest-image">
+      <img src="assets/Sosialisering.jpeg" alt="Sosialisering">
+    </div>
+  </section>
+</div>
+
+<section class="section">
+  <h2>Mine mål</h2>
+  <p>Jeg ønsker å utvikle meg videre innen teknologi og virksomhet, delta i spennende prosjekter og bidra med innovative løsninger som kombinerer programmering og problemløsning.</p>
+  <br>
+  <p>Blant annet har jeg en interesse for å jobbe innen virksomhet med teknologi som bidrar til en mer smidigere og fungerende hverdag</p>
+</section>
+
+<section class="section">
+  <h2>Ferdigheter</h2>
+  <ul>
+    <li>Programmering: Python, Java, HTML</li>
+    <li>Objektorientert programmering</li>
+    <li>Prosjektarbeid og team-samarbeid</li>
+    <li>Ledelse, kommunikasjon, problemløsning</li>
+  </ul>
+</section>
+
+
+
+
+<section class="section social-links" id="kontakt">
+  <h2>Kontakt & Sosiale medier</h2>
+  <div class="social-icons">
+    <a href="mailto:marjonifredrik@gmail.com" target="_blank" aria-label="E-post">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" alt="Gmail">
+    </a>
+    <a href="https://www.linkedin.com/in/fredrik-jonathan-marjoni-b6a649322/" target="_blank" aria-label="LinkedIn">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn">
+    </a>
+    <a href="https://github.com/Marjoni-fj" target="_blank" aria-label="GitHub">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" alt="GitHub">
+    </a>
+    <a href="https://www.instagram.com/fj_marjoni/" target="_blank" aria-label="Instagram">
+      <img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" alt="Instagram">
+    </a>
+  </div>
+</section>
+
+</div>
+
+<footer>
+<sub>© 2025 Fredrik Jonathan Marjoni – E-portefølje laget med GitHub Pages</sub>
+</footer>
+
+</body>
+</html>

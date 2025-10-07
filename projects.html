@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prosjekter – Fredrik Jonathan Marjoni</title>
+<link rel="stylesheet" href="assets/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+/* === GLOBAL RESET === */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(160deg, #1e1e2f, #2c2c45);
+  color: #e0e0e0;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* === NAVIGASJON === */
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 1rem 0;
+  background: rgba(44,44,69,0.95);
+  flex-wrap: wrap;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  border-radius: 10px;
+  margin: 0 1rem 2rem 1rem;
+}
+
+nav li { margin: 0 0.5rem; }
+nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  display: block;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: background 0.3s;
+}
+nav li:hover > a { background-color: #3a3a5c; }
+
+/* === CONTAINER === */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+/* === HEADER === */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #89b4ff;
+}
+
+/* === PROSJEKT GRID === */
+.project-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.project-card {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(4px); /* CPU/GPU-vennlig */
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  flex: 1 1 250px;
+  max-width: 300px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  color: #e0e0e0;
+}
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+}
+.project-card h3 {
+  margin-bottom: 0.5rem;
+}
+.project-card a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  text-decoration: none;
+  color: #89b4ff;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+.project-card a:hover { color: #f0f0f0; }
+
+/* === FOOTER === */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: rgba(44,44,69,0.95);
+  color: #fff;
+  margin-top: 3rem;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  nav ul { flex-direction: column; gap: 0.5rem; }
+  .project-grid { flex-direction: column; align-items: center; }
+  h1 { font-size: 1.8rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Hjem</a></li>
+    <li><a href="about.html">Om meg</a></li>
+    <li><a href="projects.html">Prosjekter</a></li>
+    <li><a href="index.html#kontakt">Kontakt</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <h1>Mine Prosjekter</h1>
+  <div class="project-grid">
+    <div class="project-card">
+      <h3>🤖 LEGO-prosjekt</h3>
+      <a href="projects/lego_project.html">Se prosjekt →</a>
+    </div>
+    <div class="project-card">
+      <h3>💻 IDATT1003 – Programmeringsøvinger</h3>
+      <a href="projects/idatt1003.html">Se prosjekt →</a>
+    </div>
+    <div class="project-card">
+      <h3>💻 IDATT1003 – Mappevurdering</h3>
+      <a href="projects/mappevurdering.html">Se prosjekt →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <sub>© 2025 Fredrik Jonathan Marjoni – E-portefølje</sub>
+</footer>
+
+</body>
+</html>

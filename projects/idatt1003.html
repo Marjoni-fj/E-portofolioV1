@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IDATT1003 – Programmeringsøvinger</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+/* === GLOBAL RESET === */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1e1e2f, #2a2a3f, #23233a);
+  color: #e0e0e0;
+  line-height: 1.6;
+}
+
+/* === NAVIGASJON === */
+nav {
+  width: 100%;
+  background-color: rgba(44,44,69,0.95);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(2px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0.5rem 0;
+  flex-wrap: wrap;
+}
+
+nav ul li { position: relative; margin: 0 1rem; }
+
+nav a {
+  color: #f0f0f0;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  display: block;
+  font-weight: 500;
+  transition: background 0.2s ease, transform 0.15s ease;
+  border-radius: 6px;
+}
+
+nav li:hover > a { background-color: #3a3a5c; }
+
+nav ul li ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: rgba(44,44,69,0.95);
+  min-width: 200px;
+  border-radius: 6px;
+  flex-direction: column;
+  z-index: 10;
+  backdrop-filter: blur(2px);
+}
+
+nav ul li:hover ul { display: flex; flex-direction: column; }
+
+nav ul li ul li a { padding: 0.5rem 1rem; }
+
+/* === CONTAINER === */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  color: #e0e0e0;
+}
+
+/* === HEADER === */
+header.intro-header {
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(135deg, #1e1e2f, #2c2c45);
+  color: #89b4ff;
+  padding: 2rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+header.intro-header h1 { font-size: 2rem; }
+
+/* SIDE INTRO TEKST */
+.page-intro p {
+  margin-bottom: 1rem;
+  color: #e0e0e0;
+}
+
+/* === CARDS / SECTIONS === */
+.exercise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.exercise-card,
+section.reflection-card,
+section {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(2px);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  margin-bottom: 1.5rem;
+  color: #e0e0e0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.exercise-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+/* TABELL */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  color: #e0e0e0;
+}
+
+th, td {
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 0.5rem;
+  text-align: left;
+}
+
+th {
+  background-color: rgba(44,44,69,0.95);
+  color: #f0f0f0;
+}
+
+table tr:nth-child(even) { background-color: rgba(255,255,255,0.05); }
+
+/* H2 OVERSKRIFTER */
+h2 { color: #89b4ff; margin-bottom: 1rem; }
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #1e1e2f, #2c2c45);
+  color: #fff;
+  margin-top: 3rem;
+  border-radius: 12px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  nav ul { flex-direction: column; gap: 0.5rem; }
+  nav ul li { margin: 0; }
+  .exercise-grid { grid-template-columns: 1fr; }
+  table, th, td { display: block; width: 100%; }
+  table tr { margin-bottom: 1rem; border-bottom: 2px solid rgba(255,255,255,0.2); }
+  th { display: block; padding: 0.5rem; }
+  td { display: block; padding: 0.5rem; text-align: right; position: relative; }
+  td::before { content: attr(data-label); float: left; font-weight: 600; text-transform: capitalize; }
+  .page-intro p { font-size: 0.95rem; }
+  header.intro-header h1 { font-size: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVIGASJON -->
+<nav>
+  <ul>
+    <li><a href="../index.html">Hjem</a></li>
+    <li><a href="../about.html">Om meg</a></li>
+    <li><a href="../projects.html">Prosjekter</a></li>
+    <li><a href="../index.html#kontakt">Kontakt</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+
+<header class="intro-header">
+  <h1>🖥️ IDATT1003 – Programmeringsøvinger</h1>
+</header>
+
+<div class="page-intro">
+  <p>Dette prosjektet samler mine øvinger fra emnet <b>IDATT1003 – Programmering 1</b> ved NTNU.  
+  Øvingene dekker et bredt spekter av Java-programmering, fra grunnleggende logikk til objektorientert programmering og filbehandling.</p>
+  <p>Med andre ord gikk prosjektet ut på å lære meg programmeringsspråket Java from scratch</p>
+  <p>Totalt 11 øvinger, hvorav 8 må være godkjent for å gå opp til eksamen. Dette inkluderer obligatoriske øvinger (10 og 11) og et bredt spekter fra øvingene 1–9.</p>
+  <p>I tillegg må det avlegges en mappevurdering som er selve grunnpilaren for å få bestått emnet. Se <a href="mappevurdering.html" target="_blank">Mappevurdering</a></p>
+</div>
+
+<section>
+  <h2>📝 Mine øvinger – Kortvisning</h2>
+  <div class="exercise-grid">
+    <div class="exercise-card"><h4>🐍 Øving 1 – Variabler og Datatyper</h4><p>Lære variabler, datatyper og grunnleggende beregninger.</p></div>
+    <div class="exercise-card"><h4>🔁 Øving 2 – Kontrollstrukturen Valg</h4><p>if/else og beslutningsstrukturer med praktiske oppgaver.</p></div>
+    <div class="exercise-card"><h4>⚙️ Øving 3 – Løkker og Primtall</h4><p>for/while-løkker og programmering av primtallsjekk.</p></div>
+    <div class="exercise-card"><h4>📂 Øving 4 – Objektorientert Programmering I</h4><p>Klasser, objekter og aktiviteter med Valuta og Terning-spill.</p></div>
+    <div class="exercise-card"><h4>📄 Øving 5 – Klasser som Byggeklosser</h4><p>Arbeid med brøkklasser og tilfeldige tall.</p></div>
+    <div class="exercise-card"><h4>⚠️ Øving 6 – Tabeller og Tekstanalyse</h4><p>Arbeid med arrays, matriser og analyse av tekst.</p></div>
+    <div class="exercise-card"><h4>📦 Øving 7 – Java API og Tekstbehandling</h4><p>Bruk av String-klassen og utvikling av egne tekstbehandlingsklasser.</p></div>
+    <div class="exercise-card"><h4>🧱 Øving 8 – Samarbeid mellom objekter</h4><p>Klasser for personer og arbeidstakere med metoder og menystyring.</p></div>
+    <div class="exercise-card"><h4>📊 Øving 9 – Tabeller av objekter</h4><p>Klasser for Student og Oppgaveoversikt, håndtering av objektlister.</p></div>
+    <div class="exercise-card"><h4>🚀 Øving 10 – Tabellister og Menyregister</h4><p>Programmering av register over arrangementer og menyer.</p></div>
+    <div class="exercise-card"><h4>🎯 Øving 11 – Eksamenstrening</h4><p>Oppsummering av alle temaer og integrasjon i større programmer ved gjennomførelse av en tidligere eksamen.</p></div>
+  </div>
+</section>
+
+<style>
+/* CPU/GPU-optimalisert styling */
+.exercise-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.exercise-card {
+  background-color: rgba(50,55,85,0.9); /* flat, uten gradient for mindre GPU load */
+  border-left: 4px solid #89b4ff;
+  padding: 1.8rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.3); /* enklere skygge */
+  color: #e0e0e0;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  will-change: transform; /* hjelper GPU-optimalisering */
+}
+
+.exercise-card h4 {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+  color: #89b4ff;
+}
+
+.exercise-card p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #d0d0f0;
+}
+
+.exercise-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.35); /* mindre intensiv */
+}
+</style>
+
+
+<section class="reflection-card">
+  <h2>Refleksjon – IDATT1003 Programmering 1</h2>
+  <p>
+    Emnet IDATT1003 Programmering 1 har gitt meg innsikt i de grunnleggende konseptene i Java programmering og prinsippene bak objektorientert programmering (OOP).
+    Jeg har fått en større forståelse for hvordan og hvorfor OOP er så viktig og kan utføre mer komplekse oppgaver.
+  </p>
+  <p>
+    Gjennom både teori og praksis lærte jeg om verktøy som Git versjonskontroll og Visual studio Code (VScode)
+    Jeg ser nå hvordan disse prinsippene kan brukes i større prosjekter for å sikre fremdrift og kvalitet.
+  </p>
+  <br>
+  <p>
+    En viktig refleksjon er hvordan gruppearbeid påvirker læring: ved å diskutere løsninger
+    med andre oppdager man egne misforståelser og lærer å tenke mer helhetlig.
+  </p>
+  <p>
+    Jeg tar med meg videre en større forståelse for Java programmering,
+    og hvordan smidig tankesett kan gjøre både skole- og arbeidsprosjekter mer effektive.
+  </p>
+</section>
+
+<section>
+  <h2>✨ Læringsutbytte</h2>
+  <ul>
+    <li>Solid forståelse av Python og grunnleggende programmeringskonsepter</li>
+    <li>Strukturering av kode og funksjoner</li>
+    <li>Erfaring med OOP, arrays, matriser og tekstbehandling</li>
+    <li>Forberedt på problemløsning og eksamensoppgaver</li>
+  </ul>
+</section>
+
+<section>
+  <h2>🔗 Lenker</h2>
+  <ul>
+    <li><a href="https://www.ntnu.no/studier/emner/IDATT1003#tab=omEmnet" target="_blank">IDATT1003 Emnebeskrivelse</a></li>
+    <li><a href="https://github.com/Marjoni-fj/IDATT1003-ovinger" target="_blank">GitHub Repository med alle øvingene</a></li>
+  </ul>
+</section>
+
+</div> <!-- container -->
+
+<footer>
+  <sub>© 2025 Fredrik Jonathan Marjoni – E-portefølje laget med GitHub Pages</sub>
+</footer>
+
+</body>
+</html>
