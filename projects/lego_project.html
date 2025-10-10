@@ -119,6 +119,28 @@ footer {
   nav ul { flex-direction: column; gap: 0.5rem; }
   header.intro-header h1 { font-size: 1.5rem; }
 }
+
+.intro-header {
+  position: relative;
+  background-image: url('../assets/Lego-EV3-Rally.jpg');
+  background-size: contain;          /* ✅ show full image */
+  background-repeat: no-repeat;
+  background-position: center bottom;/* ✅ align to bottom center */
+  background-color: #1e1e2f;
+  color: #fff;
+  border-radius: 11px;
+  overflow: hidden;
+  height: 600px;                     /* ✅ fixed height ensures full image is visible */
+  max-width: 100%;
+}
+
+.intro-header .overlay {
+  background: rgba(30,30,47,0.7); /* lett mørkt lag over bildet */
+  padding: 2rem 1rem;
+  border-radius: 12px;
+}
+
+
 </style>
 </head>
 <body>
@@ -135,9 +157,11 @@ footer {
 
 <div class="container">
 
-<header class="intro-header">
-  <h1>🧱 LEGO-prosjekt – IDATT1004</h1>
-  <p>Programkode, prosessdokumentasjon og refleksjon</p>
+<header class="intro-header" style="background-image: url('../assets/Lego-EV3-Rally.jpg');">
+  <div class="overlay">
+    <h1>🧱 LEGO-prosjekt – IDATT1004</h1>
+    <p>Programkode, prosessdokumentasjon og refleksjon</p>
+  </div>
 </header>
 
 <section>
