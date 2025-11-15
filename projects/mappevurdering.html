@@ -1,5 +1,131 @@
-<!-- NAVIGASJON -->
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mappevurdering – IDATT1003</title>
+<link rel="stylesheet" href="../assets/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+/* === GLOBAL BASE === */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1e1e2f, #2a2a3f, #23233a);
+  color: #e0e0e0;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* === NAVIGASJON === */
+nav {
+  width: 100%;
+  background-color: rgba(44,44,69,0.95);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(2px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  border-radius: 10px;
+}
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0.5rem 0;
+  flex-wrap: wrap;
+}
+nav ul li { margin: 0 1rem; }
+nav a {
+  color: #f0f0f0;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  display: block;
+  font-weight: 500;
+  border-radius: 6px;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+nav li:hover > a { background-color: #3a3a5c; }
+
+/* === CONTAINER === */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* === HEADER === */
+header.intro-header {
+  width: 100%;
+  text-align: center;
+  background: linear-gradient(135deg, #1e1e2f, #2c2c45);
+  color: #89b4ff;
+  padding: 2rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  margin-bottom: 2rem;
+}
+
+header.intro-header h1 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+/* === SECTION / CARD === */
+.section, .card {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(2px);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  margin-bottom: 1.5rem;
+  color: #e0e0e0;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.25);
+}
+
+h2, h3 { color: #89b4ff; margin-bottom: 0.8rem; }
+h3 { color: #a6c8ff; }
+
+p, li { color: #dcdcdc; text-align: justify; }
+ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+
+/* === KONTAKT === */
+#kontakt img {
+  filter: brightness(90%);
+  transition: transform 0.15s ease, filter 0.15s ease;
+}
+#kontakt img:hover {
+  transform: scale(1.1);
+  filter: brightness(110%);
+}
+
+/* === FOOTER === */
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: linear-gradient(135deg, #1e1e2f, #2c2c45);
+  color: #fff;
+  margin-top: 3rem;
+  border-radius: 12px;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  nav ul { flex-direction: column; gap: 0.5rem; }
+  nav ul li { margin: 0; }
+  .section, .card { padding: 1.2rem; }
+  header.intro-header h1 { font-size: 1.6rem; }
+}
+</style>
+</head>
 <body>
+
+<!-- NAVIGASJON -->
 <nav>
   <ul>
     <li><a href="../index.html">Hjem</a></li>
@@ -9,8 +135,106 @@
   </ul>
 </nav>
 
-<h1><b>Melding fra meg per lørdag uke 40:</b></h1>
-<p>Med tanke på at Mappevurderingen har akkurat begynt er det naturlig at jeg ikke har noe å legge til her</p>
-<p>Kommer snart...</p>
-<p>Ellers kan du fritt velge å se på mine IDATT1003 øvinger som har direkte relevans til denne mappevurderingen. Se <a href="idatt1003.html" target="_blank">IDATT1003 øvinger</a></p>
+<div class="container">
+
+<header class="intro-header">
+  <h1>🗂️ Mappevurdering – IDATT1003 Programmering 1</h1>
+</header>
+
+<section class="section">
+  <p>
+    Mappevurderingen i IDATT1003 består av et selvstendig Java-prosjekt kalt <b>Dagbok</b>.  
+    Her demonstreres forståelse for objektorientert programmering, strukturert utvikling og dokumentasjon.  
+    Oppgaven kombinerer teori, kode, testing og refleksjon – og utgjør en vesentlig del av sluttvurderingen.
+  </p>
+</section>
+
+<div class="card">
+  <h3>📘 Kort beskrivelse</h3>
+  <p>
+    Oppgaven går ut på å utvikle en tekstbasert dagbokapplikasjon i <b>Java 21</b>.  
+    Brukeren skal kunne opprette, vise, søke og slette dagbokinnlegg.  
+    Prosjektet er individuelt og inkluderer både programkode og rapport.
+  </p>
+</div>
+
+<div class="card">
+  <h3>🧩 Del 1 – Grunnstruktur</h3>
+  <ul>
+    <li>Opprett et Maven-prosjekt (Valgfritt for dataingeniører i Trondheim) og koble til GitHub gjennom GitHub Classroom.</li>
+    <li>Lag klassen <code>DiaryEntry</code> med felter for forfatter, tittel, innhold og tidspunkt (<code>LocalDateTime</code>).</li>
+    <li>Legg til enhetstester og JavaDoc-dokumentasjon.</li>
+    <li>Begynne på prosjektrapport og sette seg inn i teori og planleggingsfasen</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>📚 Del 2 – Register og logikk</h3>
+  <ul>
+    <li>Lag et register (<code>DiaryRegister</code>) for å legge til, søke og slette dagbokinnlegg.</li>
+    <li>Utvid med <code>Author</code>-klassen og <code>AuthorRegister</code>-klassen i tilleg til søkefunksjonalitet.</li>
+    <li>Implementer statistikk over antall innlegg per forfatter.</li>
+    <li>Sett opp JUnit tests for funksjonalitetene</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>💻 Del 3 – Tekstbasert brukergrensesnitt</h3>
+  <ul>
+    <li>Lag et kommandobasert menygrensesnitt med enkel navigasjon.</li>
+    <li>Implementer input-validering og unntakshåndtering.</li>
+    <li>Refaktorer koden og dokumenter løsninger i rapporten.</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>🧪 Teknologi og verktøy</h3>
+  <ul>
+    <li>Java 21 (LTS)</li>
+    <li>JUnit 5.13.4</li>
+    <li>CheckStyle (Google Style)</li>
+    <li>SonarQube</li>
+    <li>GitHub for versjonskontroll</li>
+  </ul>
+</div>
+
+<div class="card">
+  <h3>📄 Rapport</h3>
+  <p>
+    I løpet av dette prosjektet skulle det bli dokumentert progresjon og produkt gjennom en formel og profesjonelll rapport.
+    Rapporten skulle være på ca. 2500–3000 ord, og følge en akademisk struktur med innledning, metode, resultater, drøfting og konklusjon.
+    All bruk av KI-verktøy skulle bli oppgitt både i kode og rapport.
+  </p>
+</div>
+
+<div class="card">
+  <h3>📅 Status og refleksjon – Uke 46</h3>
+  <p>
+    Prosjektet er i fullføringsfasen. De siste metodene og klassene er snart komplett,
+    og grunnstrukturen viser fenomenal kunnskap til god programmerings rutine.  
+    Per nå så er det ikke så mye å si om mappevurderingen inntil vurderingen er levert.
+  </p>
+  <br>
+  <p>I etterkant av Mappevurderingen min, ser jeg for å utnytte meg av produktet til personlig bruk. </p>
+  <p>Blant annet ønsker jeg å legge til grafisk grensesnitt, SQL lagring av flere dagbokinnlegg, 
+    og eventuell utnytte hash funksjoner for kryptering og sikkerhet av mine dagbokinnlegg</p>
+</div>
+
+<section id="kontakt" class="section">
+  <h2>📬 Kontakt & Sosiale medier</h2>
+  <div style="display:flex;justify-content:center;gap:1rem;margin-top:1rem;">
+    <a href="https://mail.google.com/mail/?view=cm&to=marjonifredrik@gmail.com" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/gmail.svg" width="32" alt="Gmail"></a>
+    <a href="https://www.linkedin.com/in/fredrik-jonathan-marjoni-b6a649322/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" width="32" alt="LinkedIn"></a>
+    <a href="https://github.com/Marjoni-fj" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/github.svg" width="32" alt="GitHub"></a>
+    <a href="https://www.instagram.com/fj_marjoni/" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg" width="32" alt="Instagram"></a>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <sub>© 2025 Fredrik Jonathan Marjoni – E-portefølje laget med GitHub Pages</sub>
+</footer>
+
 </body>
+</html>
